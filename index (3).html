@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spec Advertising Portfolio</title>
+<style>
+:root{--or:#ff6a00;--ink:#1a1a1a;--bg:#f4efe4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:-apple-system,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;background:#000}
+#home{position:fixed;inset:0;overflow:hidden;z-index:1}
+#vid{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0}
+#snd{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px;z-index:10;font:700 14px/1 -apple-system,"Helvetica Neue",Arial,sans-serif;color:var(--or);background:rgba(0,0,0,.65);border:1px solid rgba(255,106,0,.7);border-radius:999px;padding:10px 16px;cursor:pointer}
+#snd:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+#home .dim{position:absolute;inset:0;background:rgba(0,0,0,.62)}
+#home .c{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:6vh 8vw 22vh;overflow-y:auto;color:var(--or);font-weight:700}
+h1{font-size:clamp(28px,5vw,64px);margin:0 0 5vh;letter-spacing:-.03em;line-height:1.05}
+#home .c a{color:var(--or);text-decoration:none;font-size:clamp(16px,2.1vw,26px);margin:1.3vh 0;max-width:42em;line-height:1.3;opacity:.8;transition:opacity .2s;cursor:pointer}
+#home .c a:hover,#home .c a:focus-visible{opacity:1;outline:none;text-decoration:underline;text-underline-offset:5px}
+#home .m{position:absolute;bottom:5vh;left:8vw;right:8vw;max-width:786px;z-index:2;border-top:1px solid rgba(255,106,0,.55);border-bottom:1px solid rgba(255,106,0,.55)}
+#ct{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--or);cursor:pointer}
+#ct:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+#ct i{width:8px;height:8px;border-radius:50%;background:var(--or);transition:all .25s}
+#ct[aria-expanded=true] i{width:16px;height:2px;border-radius:0}
+#cp{max-height:0;overflow:hidden;transition:max-height .3s ease}
+#home .m a{display:block;width:fit-content;color:var(--or);text-decoration:none;font-weight:700;font-size:clamp(16px,2vw,22px);margin:4px 0 14px;opacity:1}
+#home .m a:last-of-type{margin-bottom:22px}
+#cp span{display:block;font-size:14px;opacity:.8;color:var(--or);font-weight:700}
+#pg{display:none;position:relative;z-index:1;min-height:100%;background:rgba(244,239,228,.96);color:var(--ink)}
+#pg .w{max-width:680px;margin:0 auto;padding:48px 24px 120px}
+#pg .b{color:var(--ink);font-weight:700;cursor:pointer;text-decoration:none;font-size:15px}
+#pg h2{font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;line-height:1.1;margin:32px 0 28px}
+#pg h3{font-size:24px;font-weight:700;letter-spacing:-.01em;margin:56px 0 18px;padding-top:22px;border-top:2px solid var(--ink)}
+#pg p.t{line-height:1.8;font-size:18px;margin:0 0 22px}
+#pg p.t b{font-weight:800}
+#pg p.q{font-size:24px;font-weight:700;line-height:1.35;letter-spacing:-.01em;margin:0 0 18px}
+.sp{font-family:"Courier Prime","Courier New",Courier,monospace;font-size:16px;line-height:1.6;background:#fffdf7;padding:36px 28px;margin:20px 0;box-shadow:0 1px 0 #d9d2c0}
+.sp p{margin:0 0 12px}
+.sp .s{font-weight:700;margin-top:22px}
+.sp .c{margin:18px 0 0 38%}
+.sp .p{margin:0 0 0 30%}
+.sp .d{margin:0 12% 12px 22%}
+.sp .f{font-family:inherit;font-weight:700;margin:26px 0 8px}
+@media(max-width:560px){.sp{padding:24px 14px;font-size:13px}.sp .c{margin-left:30%}.sp .p{margin-left:22%}.sp .d{margin:0 4% 12px 12%}}
+</style></head><body>
+<video id="vid" autoplay muted loop playsinline preload="auto" src="video.mp4"></video>
+<button id="snd" type="button" aria-pressed="false">Sound: off</button>
+<div id="home">
+<div class="dim"></div>
+<div class="c"><h1>Spec Advertising Portfolio</h1>
+<a data-k="1" tabindex="0">A company against makeup selling makeup.</a>
+<a data-k="2" tabindex="0">Newspapers aren’t cool anymore. Their readers always were.</a>
+<a data-k="3" tabindex="0">Give your little assemblers a chance.</a>
+<a data-k="4" tabindex="0">We know that we don’t.</a>
+<a data-k="5" tabindex="0">Message to you: See me in everyone and know that i am happy for you.</a>
+<a data-k="6" tabindex="0">Your time is not yours.</a></div>
+<div class="m"><button id="ct" aria-expanded="false" aria-controls="cp">Contact<i></i></button><div id="cp"><span>Work with me:</span><a href="mailto:adityavermaworkid@gmail.com">adityavermaworkid@gmail.com</a><a href="https://www.linkedin.com/in/adityanverma" target="_blank" rel="noopener">linkedin.com/in/adityanverma</a></div></div>
+</div>
+<div id="pg"><div class="w"><a class="b" id="back" tabindex="0">← Spec Advertising Portfolio</a><div id="body"></div></div></div>
+<script>
+var P={
+1:["A Concept Makeup Brand: DON’T",`
+t|“DON’T buy our makeup if it makes you feel you are nothing without it.”
+t|“Unfortunately for DON’T customers - exercise, diet and sleep before makeup.”
+h|Brand Manifesto
+t|DON’T is a makeup brand formed on the premises of the philosophy of “negation before addition”. Closer to Advaita Vedanta’s “neti-neti” or modern Nassim Taleb’s “via negativa”—where the more reliable way to reach beauty and truth is firstly by eliminating the wrong than adding what we perceive as good. Hence comes the name “DON’T”, which redirects our attention from unnecessary noise to what’s truly important. To reach, or rather, to uncover our beauty.
+t|It promotes the practice of conscious makeup, which is done deliberately and not out of the many psychological insecurities or pressures we humans are so prone to. Conscious, not just in checking ingredient lists, but in our usage practices of it, on our face.
+t|We think of makeup as a tool of extension. Not as a transformation that turns a person from ugly to beautiful, but more like a garnish on what’s already beautiful in you, and how it radiates from your face.
+t|Therefore, we are strictly light makeup focused. We simply don’t sell heavy makeup.
+t|But who defines what’s minimal? Something internal does. We see it every time we push it away when it points us to something true about ourselves. When there is an eerie discomfort we feel about our choices. When we don’t oblige with what we truly want. When we artificially try to feel better in the masks we wear.
+t|So when the extra shades start to feel too foreign, you know where you went a step ahead.
+t|Our effort is for wearing a mask that doesn’t force you to be what the mask is, but to have control over what you want it to be. And that is where the real individual’s voice shines again. Where, as the popular saying goes, the world is a cinema and you are the star. But in our version, the star is both deeply entrenched in the act but also conscious of her part and acting in it. Never letting the world take away what’s true underneath.
+t|Then why no makeup at all?
+t|Because we don’t see “thoughtful makeup” as camouflaging, or as self denial. It’s a deliberate showoff. Quite opposite to hiding oneself.
+t|Culturally, women have participated in the ritual of self care, but when that self care turns into wanting to be someone else, or a version of you that you are not, that’s where we step back.
+t|If we closely look at the word “makeup” itself, the implicit interpretation can seem like it is asking for making up for something lost or something that’s already not there. So we have redefined makeup as “touchup”, which tells you everything you need to know about us. When we say we are touching up, there’s already an underlying layer called our natural face, which allows for a bit of cosmetic sparkle on it. Again quite opposite to the general coined use of touching up, which is more makeup on already done makeup.
+t|One last thing. Warning for that matter. It is going to be hard. To choose less. To have more accountability. To see people using anything that reads “beauty” and being on the other side of that conversation. To be more open and less reclusive about your face and how you see yourself. To allow the natural fit of yours to be your own, this time. Truly.
+h|Strategy
+t|Problem: The Indian makeup industry or makeup industry as a whole doesn’t address the problems with the western overconsumption framing of beauty. Which leads to dissatisfaction and exacerbated insecurities women continue to feel— even while using the thing that was intended to fix it.
+t|Insight: By explicitly telling the truth, bearing the burden of costly signalling and taking the loss on one’s own revenue by not selling heavy makeup, the brand wouldn’t preach what it stands for but will show it. Such a positioning can’t be faked. With almost no brand holding such strong opposing values against the flux of the hyper-consumerist makeup market, addressing that we have been selling insecurities would be an honest word in the pool of “you look bad, you will look better by using…”.
+t|Advantage: differentiation in the industry or clean makeup market specifically, is mainly on metrics like ingredients, clean or natural, skin inclusive etc., and the assumption of “more is better” is implicit in top players’ positioning. What looks like direct competition, in the indian context, for clean brands like Minimalist is in fact not, on a fundamental level. Minimalist is built on transparency on the product ingredients side. DON’T differentiates on the psychology of makeup usage itself and on its philosophy.
+t|Strategy: the name “DON’T” holds the negation factor, which makes people have an extreme take on it. Not something you can ignore. Either like the philosophy or feel discomfort around it, because it requires redressal of your own values and choices. The brand picks the niche of women who also oppose the heavy makeup narrative and dislike the scrutiny attached to the act of makeup itself. By framing light makeup as literally the right kind of makeup, the brand takes the one sided risk of redefining what beauty is. it can then continue to hold its radical messaging with its new expected momentum and continue its marketing efforts in this same view.
+`],
+2:["The Hindu",`
+t|“Newspapers aren’t cool anymore. Their readers always were.”
+t|“When depth meets dawn.”
+h|Strategy
+t|Problem: Newspapers are seen as an old technology. They are more effortful than mobile phones and culturally seen as outdated.
+t|Insight: People like to associate with cool, aesthetic things.
+t|Advantage: Most brands compete on inside-the-box metrics in the newspaper world like content reliability, trust etc.
+t|Aesthetic framing for a newspaper is outside the box. The Hindu’s already established quality/reliability distinction over content (“written by journalists” campaign) can now, also take over the aesthetic experience of reading a newspaper.
+t|Strategy: Make reading The Hindu the embodiment of a cool aesthetic ritual or practice to participate in.
+h|Creative
+t|Insight: Culturally, we associate newspapers with uncles. So by association, if we made the uncle cool, that would transfer to The Hindu.
+t|How others see us while we read a newspaper, or how we imagine they see us, gives it a cultural and aesthetic value that a mobile phone cannot match.
+t|Idea: Inventing the character of the typical newspaper reading uncle, with the tagline “Beta, when has depth not been cool?”
+t|Making Depth and cool become congruent, because depth/quality is what The Hindu has established itself as.
+t|Simple scripts built on its hero being the edit itself, which are super popular across platforms as a theme of building someone’s “coolness”.
+f|FILM #1 — INTRODUCTION OF THE HINDU NEWSPAPER UNCLE (Hindi version)
+s|EXT. STREET
+a|A few kids walk down a street. An uncle sits reading a newspaper, his face hidden behind it.
+c|KID 1
+d|“Uncle, newspaper kon padhta hai ab. Chodh do isko.”
+c|KID 2
+d|“Vo zamana gaya ab uncle. Phone pe dekhliya karo news.”
+c|KID 3
+d|“Kya uncle. Cool bano thoda!”
+a|Uncle slowly moves a toothpick in his mouth. Cinematic angle: only the toothpick visible, showing what’s happening behind the newspaper.
+a|Newspaper goes to the side. Reveal uncle’s outfit: lungi, shirt, sunglasses, tea beside him.
+c|UNCLE
+d|“Beta… when has depth not been cool?”
+a|Then comes an Instagram/YouTube type fan edit of him. Rough sequence: one shot, top to bottom. One shot, camera zooming out as he folds the newspaper. One shot of him highlighting something on the paper. One shot of him sipping tea. One shot of him sitting, feet folded. Zoom in, zoom out.
+p|(beats in sync with the edit)
+a|Kids look surprised.
+c|KID 1
+d|“Uncle, aap theek toh ho na?”
+p|(an anchor line to connect all the pieces, along with the tagline. Addressing the absurdity of it all.)
+f|FILM #2 — CONTINUATION (NEWSPAPER CUTTING ART)
+s|EXT. STREET
+a|Same kids, crossing the same street.
+c|KID 1
+p|(to the others)
+d|“Are, ye wahi newspaper wale uncle hai. Koi kuch bolna mat.”
+a|Kids cross by uncle.
+c|UNCLE
+p|(while showing his art)
+d|“Are beta, kaha ja rahe ho? Ye meri art toh dekh ke jao.”
+c|KID 1
+d|“Uncle, ab ye kya hai?”
+c|UNCLE
+d|“Kuch nahi beta, apni girlfriend ke liye newspaper cutting se appreciation card bana raha tha… dekho… Healthy relationships mein karna padta hai.”
+c|KID 3
+p|(a small kid, new to the group)
+d|“Uncle, girlfriend toh cool logo ki hoti hai. Aap toh?”
+a|After the little boy’s line, the other kids get annoyed as they remember what had happened earlier with the uncle. Addressing the small kid has made a mistake by pressing uncle’s buttons the wrong way — meaning uncle would have to show off again.
+c|UNCLE
+d|“Beta, when has depth not been cool?”
+a|Instagram/YouTube type fan edit sequence of uncle with his newspaper art.
+p|(beats in sync with the edit)
+a|Kids look surprised.
+c|KID 3
+d|“Uncle, aap theek toh ho na?”
+f|FILM #3 — UNCLE ON A DATE
+s|INT. RESTAURANT
+a|Newspaper uncle is on a date.
+c|GIRL
+d|“So what do you like - beaches or mountains?”
+c|UNCLE
+d|“I like well researched, reliable and unbiased quality perspectives that help me grow…What do you like?”
+a|A shot of Girl looking surprised, interested. Uncle takes a sip of his chai.
+c|UNCLE
+d|“I do see some quality in you too, what are you, The Hindu newspaper haha?”
+p|(uncle laughs awkwardly and loudly)
+a|People on other tables, looking confused.
+c|GIRL
+d|“What… whatever! But tell me how are you so…?”
+c|UNCLE
+d|“Cool. Hmm… I don’t know. When has depth not been cool?”
+a|Edit sequence of uncle.
+p|(beats in sync with the edit)
+a|CAMERA PAN OUT. Kids sitting at the table next to him.
+c|KID 2
+d|“Uncle, aap theek toh ho na?”
+t|Continuation of such a storyline would make the messaging stick for the brand.
+`],
+3:["IKEA",`
+t|“Giving your little assemblers, a chance.”
+t|“If only you could assemble love.”
+h|Creative
+t|Problem: The DIY model in India has been seen, culturally, as a hassle, something to be delegated to cheap labour.
+t|Brief: Turn the DIY IKEA model from a hassle into a kid’s learning experience using “family bonding” as a theme, especially for light DIY products like coffee tables and book racks. Not as kids’ toys, but as an agent for their exposure to learning, with their parents.
+t|Insight: Parents want to move their kids from screens into something more useful for their growth.
+t|Task: Show, through a narrative, the relationship between kids and IKEA DIY products. Tell a family’s story through the eyes of their furniture, personifying the furniture itself as being part of the family.
+t|(Animation Film)
+h|Visual style
+t|A 2D IKEA table character moves left to right through its family’s life journey, narrating (with moving lips) its family’s changing dynamics. The table itself never moves. Instead, the ground beneath it, and any objects or scenes that appear, move from right to left, creating the sense of forward motion through time. New elements enter from the right, riding in with the moving ground. When an extended interaction happens, the table and those objects pause while the road keeps moving. Once the action is complete, the table resumes and the objects exit left along with the road. In the final scene, elements stay in frame until the film ends. The table remains visually unchanged throughout, except in Scene 1, where it is being assembled.
+h|Film
+s|INT. DRAWING ROOM
+a|IKEA table moving; family appears as the table speaks.
+c|TABLE
+p|(narrating)
+d|“Ye hoon main, ek pyaari si table. Ikea table. Aur ye hai meri family - Mummy, Papa, aur Raghav. Main is duniya mein kaisi aayi?”
+a|Suddenly, Mummy, Papa, and Raghav appear in their drawing room.
+c|TABLE
+p|(narrating)
+d|“Toh suno, Papa Mummy mujhe ek dabbe (IKEA box) mein bikhra hua laaye, aur ek Sunday dupahar baithkar mere purze fit kar diye!… Aur mujhe ek pyaari si zindagi de di!”
+a|Raghav is asleep; the family waits in anticipation for him to wake up. Raghav wakes up.
+c|RAGHAV
+d|“Kya! Aap logo ne mere bina hi assemble kar diya?”
+c|MUMMY
+p|(picks up a piece, acts confused)
+d|“Nahi Raghav? Ye piece kahaan lagega samajh hi nahi aa raha!”
+c|RAGHAV
+d|“Mujhe dikhao, main dekhta hoon.”
+c|RAGHAV
+p|(cont’d, thinking)
+d|“Umm… umm… haan! Ye yahaan lagega!”
+c|PAPA
+d|“Arre waah Raghav, tumhara table finally tayaar ho gayi!”
+c|RAGHAV
+d|“Yah! Yah! Yah!”
+a|Table resumes moving; new family members appear in turn as the narration introduces them.
+c|TABLE
+p|(narrating)
+d|“Bas, uske baad kya? Uske baad ghar change hue, kuch aur family members aaye - jaise Ikea lamps, chairs… aur haa, mere jaisi ek aur table. Shuruvat mein thodi jealousy zaroor hui… par ab maine usse as a family member accept kar liya hai!… Par ek cheez kabhi nahi badli - main hamesha se Raghav ka favourite tha. Apne exams ke liye mere upar padhna, ya apne dosto ke saath cards games khelna. Ek baar toh usne firse mere parts alag karke mujhe bikhra hua chodh diya. Lekin fir mummy se daat padi toh-”
+c|MUMMY
+d|“Raghav, ye kya kiya beta, tumne firse table ko khol diya. Chalo aao, aur isko firse assemble karo… table bura maan jayegi beta!”
+c|RAGHAV
+d|“Nahi mummy, table meri bestfriend hai… ye dekho, ye firse set ho gayi. 1 and 2 and 3 and 4. Yay!”
+a|The house interior, Mummy and Raghav, enters from the right, same as always, and settles into the center of frame. The table is already there, static, exactly as it has been throughout the film; the road keeps moving beneath everyone. Since this is the final scene, nothing exits left afterward. The family and the table stay in frame until the film ends on Raghav’s line.
+c|TABLE
+p|(narrating)
+d|“Par ab kuch samay se, jabse Raghav thoda bada ho gaya hai. Tutions me extra time spend karne lag gaya hai. Mere saath zyada time spend nahi kar pata jaise pehle karta tha… Lekin, ek baat zaroor hai - jab tak apne aankhon ke saamne hote hai toh door nahi lagte? Thoda cheesy hogya kya? Main uske exams ke baad usse millunga!… Chalo ye sab chodho, shayad Raghav ghar wapas aa gaya hai, mujhe jaana hoga. Baaki ki story baad mein.”
+c|RAGHAV
+d|“Mumma main aa gaya.”
+c|MUMMY
+d|“Exam kaisa gaya Raghav?”
+c|RAGHAV
+d|“Bahut accha mummy, finally exam khatam ho gaye! Chalo, bahut din ho gaye aapke haath ke pakode nahi khaaye-”
+a|Raghav sits on a chair next to the table. The table increases massively in size, blushing with red cheeks, showcasing its joy and excitement, as Raghav puts his feet up on it, hands behind his head.
+c|RAGHAV
+p|(continuing)
+d|“Chai ke saath ek plate pakode le aao, master chef.”
+a|The table can’t contain its excitement and suddenly releases all its air in one go, as Raghav’s feet stay on it. After the release, it shrinks back to normal size. Raghav remains sitting on the chair throughout, unaware. (VISUAL + SFX)
+c|RAGHAV
+d|“Are, ye awaaz kahaan se aayi?”
+a|The ad ends on an experimental, open-ended message, with only the brand sign-off.
+t|If well received, this storyline could be developed into a long-term brand advertising campaign or extended through narrative-driven content across other social media platforms.
+`],
+4:["Claude",`
+t|“We know that we don’t.”
+h|Creative
+t|Strategy: AI confidently hallucinates and gives a wrong answer. Claude is better than ChatGPT at saying that it doesn’t know, and that it is only guessing on highly uncertain topics. A clear differentiation, and it should be highlighted.
+t|Insight: Admitting faults builds trust, whereas constant agreement (“yes-manning”) tends to erode it. If AI can demonstrate this kind of honesty, people will likely trust Claude more over time.
+t|Solution: Tagline- “We know that we don’t,” coining Socrates’s “I know that I know nothing,” signifying self-awareness and limitations, rather than deluding folks.
+t|By creating everyday scenarios where the response starts with “I don’t know” rather than an immediate answer, the ad portrays exploration and thought over certainty, which is exactly what Claude’s tagline, “Keep thinking,” asks for. It also mimics how Claude actually begins responding to complex questions.
+t|For the script 1 to have a more mythical feel, the final edit would have cuts to philosophy-themed things, like Roman statues, pages being turned, a king’s royal court, etc., making the overall feel operatic with such background music.
+t|It showcases a single, simple moment as an imaginative reflection that has transcended human thought for as long as time.
+f|SCRIPT 1 — GRANDMA AND GRANDSON
+s|INT. GRANDMA’S LIVING ROOM - NIGHT
+a|Warm lamp light. GRANDMA sits in her chair with a cup of tea. Her GRANDSON sits on the floor near her feet.
+c|GRANDSON
+d|Grandma, does God really exist?
+a|Grandma while sipping her tea.
+c|GRANDMA
+d|um…I don’t know.
+a|A pause.
+c|GRANDMA (CONT’D)
+d|Science hasn’t found him, and faith hasn’t proven him, i guess. But both keeps juggling. And so do I. like a ball in the mix, haha.
+c|GRANDSON
+d|I thought you knew. grandma
+a|She smiles.
+c|GRANDMA
+d|Not knowing isn’t the end of a question, it’s the start of one.
+a|She stands and takes his hand.
+c|GRANDMA (CONT’D)
+d|Let’s start with looking at what people have thought about this for thousands of years. Together.
+s|INT. GRANDMA’S LIVING ROOM, WINDOW TABLE - NIGHT
+a|A laptop and old books lie open together on the table. The grandson flips pages. Grandma reads aloud from the screen. Both lean in. Lamp-lit.
+a|FREEZE FRAME.
+a|SUPER: “We know that we don’t.”
+a|BRAND SIGN-OFF: “Keep thinking.”
+a|CLAUDE LOGO.
+t|This script’s vibe is more “purple”. some Piano background music. And fast paced edit cuts are to happy nature themed imagery. Like purple colour graded sunflower farms, villagers churning water from a handpump, meanwhile the large water body along side them— signifying a base of tranquility and peace, balancing the silent yet tense moment between the couple.
+f|SCRIPT 2 — COUPLE COMMUNICATION
+s|INT. BEDROOM - NIGHT
+a|Dim light. BOYFRIEND and GIRLFRIEND lie in bed. Looking at the ceiling. The room is quiet after a tense moment. No music as the frame shows them.
+c|GIRLFRIEND
+d|Do you think you get defensive, when we talk…talk about things.
+a|A pause. He continues to look at the ceiling, while she looks at him.
+c|BOYFRIEND
+d|I don’t know…yes i do… I always do… I see myself doing it, too.
+a|A longer pause. She, slightly surprised, continues to look at his admission.
+c|BOYFRIEND (CONT’D)
+d|Whenever i feel discomfort, i start to lash out, rather than pause and seek both of our well beings in that moment.
+a|Silence for a beat.
+c|BOYFRIEND (CONT’D)
+p|(quieter)
+d|I want to change…learn how to change.and i don’t know how to.
+a|She doesn’t answer right away. He sits up.
+c|BOYFRIEND (CONT’D)
+d|Do you?
+a|She nods. Their hands find each other.
+c|GIRLFRIEND
+d|No.. But let’s try.
+a|In the background, out of focus, a laptop sits open on a desk. The screen glows faintly. Neither of them looks at it.
+a|FREEZE FRAME.
+a|SUPER: “We know that we don’t.”
+a|BRAND SIGN-OFF: “Keep thinking.” followed by “Trying.” The word “Trying.” is a cut-paper element added to the standard tagline for this ad only. CLAUDE LOGO.
+t|The message of claude itself being the catalyst is subtle here, deliberately. Since people don’t necessarily and explicitly like the idea of sitting in front of their computers and finding solutions for their real world troubles.
+`],
+5:["Hinge",`
+t|“Message to you: See me in everyone and know that i am happy for you.”
+h|Strategy
+t|Though quantitative data is unavailable, but observationally, a lot of people using dating apps have already had at least one breakup or infatuation before.
+t|So their current identity, as they use the apps, isn't an isolated one. That context of how they feel about themselves in the “love” context, feel about others, and feel about them with others. sits deep.
+t|And dating apps have not addressed the past or that identity; and have always directed folks to the future, even though past stays heavy, still.
+t|Communicate, with subtle messaging, addressing love as a continuous process — though not explicitly in such a way that past itself starts to hurt, yet again and people don’t think about new dates.
+t|So, for a lack of a better word, milder form of “melancholy” is a helper here, for us, as a messaging medium. To forge and continue the steps of love, literally, onto the next.
+t|Such a strategy chases an unsaid reality, which you feel when you realise the person you are on a date with, hasn't moved on. Or are still trying to process, amidst their journey to find a new partner. And So are you. Subconsciously or consciously. At least in some way.
+h|Creative
+t|“Message to you: See me in everyone and know that i am happy for you.” (first part—Continuation of love. Second part— well being assurance.)
+t|Acts as a messaging to your ex, that i am in the process of healing and at the same time hoping the best for you; while knowing that love continues, regardless of humans literally changing,places— like a musical chair for life.
+t|Portraying love as a continuous chain rather than cuts and joints. A bit philosophical— eternal love and all souls as one.
+f|VIDEO SCRIPT — A LIVING LOVE LETTER
+a|Posted on Instagram posts, and also as a video.
+s|INT. HOUSE
+a|CHLOE sits at a spot in her house, returned from a trip with her current boyfriend. She is ruminating, going through her portable polaroid camera gallery.
+c|CHLOE
+p|(V.O.)
+d|Did we die? We didn’t. We both know it. I love him everyday and he’s not you. And was never meant to be.
+d|But wasn't my love same? For you and him? I question. And never find an answer; but perhaps i am always closer to a yes than a no. or atleast want it to be that way.
+d|You said to me, “see me in everyone and know that i am happy for you.”
+d|You smiled, as you left me— continuing your inhuman gesture of always being altruistic. I call it inhuman because it is too human of you.
+d|You died, John. You died putting me at the heights of the sky. All while burying yourself.
+d|That wasn't love. from your side.
+d|I know that you made sure, i would continue to do everything i should possibly do to make myself happy, after you would be gone. I cried, and denied that last happiness to you; begging to you that i won’t be, without you.
+d|And that is when you lost your smile, John. You were worried. Not at the sight of losing me, but at the feeling that you hadn’t done your part well for our doomsday, in caring for me. That’s what the air felt like around us.
+d|But, crying still, I knew that wasn’t true.
+d|You still felt, the need to reassure of how i could. And how i would. Continue to live.
+d|Though my eyes, even then, only wished to know of you. But, as in every other part of my life, I was overshadowed by myself there too, and it took away the attention you needed to give to yourself.
+d|You though, have been true, i see you. Silently. Smilingly. Alive. In everyone else.
+d|And you too, should know today, that I have not said what i could to you and that will, shall stay the same way. “Know that i see you in everyone and i know that you are happy for me.”
+a|Her boy friend comes and starts to read the letter happily, showing they are communicating well on how both of them feel about their past relationships.
+t|Such a creative, if continued, can even be turned into a book for the brand.
+`],
+6:["ChatGPT",`
+t|“Your time is not yours.”
+h|Strategy
+t|In the AI world, Claude plays the good guy (context: all the founders of Anthropic left OpenAI on the premise that it isn’t taking risks seriously and that Sam Altman isn’t reliable or trustworthy).
+t|We are not fighting against that image.
+t|The company’s mission is AGI for all people’s benefit. We are picking that “mission-orientedness” as the theme to continue in the messaging, with an absurd filter imagery over the top.
+h|User
+t|An AI power user is somebody who strives and is hyper-ambitious, regardless of the category or industry they are in. They are motivated by mission and by something more than themselves.
+t|To the point that immediate safety isn’t on their horizon, since they are just too into progress. These are company heads, geeks on the internet, or people who are willing to pay. They then also compel others to use ChatGPT through organic promotion.
+t|If Anthropic is the opposition, criticizing the ruling party (which they did with their Super Bowl ads), the real attack should not address them at all.
+t|And doubling down on keeping the foundation strong by keeping the power users through mission-oriented messaging.
+h|Creative
+t|“Your time is not yours.” At first it sounds like a supreme leader laying down orders to their peasants. But the actual dictatorial ruling of a society is more subtle and only implicitly stated.
+t|The motivational, mission-oriented, half-done line gives the feel we want. It is provocative, but all we want to communicate is not slavery to AI but slavery to one’s mission and its duty to society, which has been considered noble even by the Greeks.
+f|VIDEO AD SCRIPT
+s|MONTAGE - PEOPLE AT WORK
+a|Absurd visual feel, leaning toward black and white. Rock background music, something like “Rocket Man” by Elton John. Visuals of people striving and working really hard, showing passion for their work.
+c|NARRATOR
+p|(V.O.)
+d|Your… time… your time… your time.
+d|Your time isn’t… your time is, is not, yours.
+d|Your time isn’t yours.
+d|Isn’t time yours?
+d|Time is mission.
+d|Your time isn’t yours. It’s for your mission.
+d|Mission is time.
+d|Your time isn’t yours. It’s for your society.
+d|Society is time.
+d|Time is mission.
+d|Your time isn’t.
+d|Your time. Your time isn’t yours.
+d|Your time isn’t yours. It is for your mission. It’s for your society.
+a|CHATGPT LOGO.
+`]};
+var K={s:"s",a:"a",c:"c",p:"p",d:"d",f:"f"};
+function esc(x){return x.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(k){
+ var d=P[k],h="<h2>"+d[0]+"</h2>",o="",sp=false;
+ d[1].trim().split("\n").forEach(function(l){
+  var i=l.indexOf("|"),t=l.slice(0,i),x=esc(l.slice(i+1));
+  var scr="sacpdf".indexOf(t)>-1&&t!="";
+  if(scr&&!sp){o+='<div class="sp">';sp=true}
+  if(!scr&&sp){o+="</div>";sp=false}
+  if(t=="t"){var q=(x.charAt(0)=="“"&&x.slice(-1)=="”")?" q":"";x=x.replace(/^(Problem|Insight|Advantage|Strategy|Brief|Task|Idea|Solution):/,"<b>$1:</b>");o+='<p class="t'+q+'">'+x+"</p>"}
+  else if(t=="h")o+="<h3>"+x+"</h3>";
+  else o+='<p class="'+t+'">'+x+"</p>";
+ });
+ if(sp)o+="</div>";
+ document.getElementById("body").innerHTML=h+o;
+}
+function route(){
+ var k=(location.hash||"").slice(1),home=document.getElementById("home"),pg=document.getElementById("pg");
+ if(P[k]){render(k);home.style.display="none";pg.style.display="block";document.documentElement.style.background="#f4efe4";window.scrollTo(0,0)}
+ else{home.style.display="";pg.style.display="none";document.documentElement.style.background="#000"}
+}
+document.querySelectorAll("#home a[data-k]").forEach(function(a){
+ var go=function(){location.hash=a.dataset.k;route()};
+ a.addEventListener("click",go);a.addEventListener("keydown",function(e){if(e.key=="Enter")go()});
+});
+var b=document.getElementById("back");
+var back=function(){location.hash="";route()};
+b.addEventListener("click",back);b.addEventListener("keydown",function(e){if(e.key=="Enter")back()});
+var ct=document.getElementById("ct"),cp=document.getElementById("cp");
+ct.addEventListener("click",function(){var o=ct.getAttribute("aria-expanded")=="true";ct.setAttribute("aria-expanded",!o);cp.style.maxHeight=o?"0":cp.scrollHeight+"px"});
+var v=document.getElementById("vid"),sb=document.getElementById("snd");v.muted=true;v.play().catch(function(){});
+sb.addEventListener("click",function(){v.muted=!v.muted;sb.textContent=v.muted?"Sound: off":"Sound: on";sb.setAttribute("aria-pressed",!v.muted);v.play().catch(function(){})});
+window.addEventListener("hashchange",route);route();
+</script></body></html>
